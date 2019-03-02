@@ -4,7 +4,10 @@ var express 			 	 = require('express')
 	, User                    = require('../models/user')
 	, LocalStrategy           = require("passport-local")
 	, passport                = require('passport')       
-    , passportLocalMongoose   = require('passport-local-mongoose');
+    , passportLocalMongoose   = require('passport-local-mongoose')
+    , Sentiment               = require("sentiment");
+
+const sentiment = new Sentiment();
 
 
 const url = process.env.MONGOLAB_URI || "mongodb://localhost/analyzapp";
@@ -87,6 +90,31 @@ function isLoggedIn(req, res, next){
         res.redirect('/login');
     }
 }
+
+//=>routes for sentiment output==========
+
+// sentiment output route
+router.get("/sentimentResult", (req, res)=> {
+	const _         = require("underscore");
+
+		res.render("index", { 
+			// Underscore.js lib
+			_     : _, 
+			
+			// Template data
+			title : "Sentiment result",
+			result : items,
+			userLoggedIn : userLoggedIn
+		});
+
+});
+    
+
+
+
+
+
+
 
 
 module.exports = router;

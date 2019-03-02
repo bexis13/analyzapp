@@ -22,8 +22,8 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(require("express-session")({
     secret : "secret session info",
-    resave : false,
-    saveUninitialize : false
+    resave : true,
+    saveUninitialized : true
 }));
 app.use(passport.initialize());
 app.use(passport.session());
