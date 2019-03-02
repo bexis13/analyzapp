@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title> Shop</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    </head>
+    <body>
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/"><span  id="nav-brand">SHOP</span></a>
+                </div>
+                
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/categories_menu/mens"><span > <i class="fa fa-male" aria-hidden="true"></i></span> Mens</a></li>
+                    <li><a href="/categories_menu/womens"><span > <i class="fa fa-female" aria-hidden="true"></i></span> Womens</a></li>
+                    <% if(userLoggedIn){ %>
+                        <li><a href="/buyNow"><span > <i class="fa fa-shopping-cart" aria-hidden="true"></i></span>Cart</a></li>
+                        <li><a href="/logout"><span > <i class="fa fa-sign-out" aria-hidden="true"></i></span> Log Out</a></li>
+                    <% }else if(!userLoggedIn){ %>
+                        <li><a href="/login"><span > <i class="fa fa-sign-in" aria-hidden="true"></i></span> Log In</a></li>
+                        <li><a href="/register"><span > <i class="fa  fa-user-plus" aria-hidden="true"></i></span> Register</a></li>
+                       
+                    <% } %>
+                </ul>
+            </div>
+        </nav>
+        <div class="container-fluid">
